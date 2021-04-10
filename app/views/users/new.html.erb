@@ -1,0 +1,16 @@
+<center><h1>Trang Tao Moi Users</h1></center>
+
+
+<%= form_for @user do |f| %>
+    <%= f.label :name , "user_name" %>
+    <%= f.text_field :name, placeholder: "user name" ,class: "form-control"%>
+    <%= f.hidden_field :role_id, value: 3   %>
+    <%= f.label :email , "email"%>
+    <%= f.text_field :email, placeholder: "email", class: "form-control"%>
+    <%= f.label :password , "password"%>
+    <%= f.password_field :password, placeholder: "password" ,class: "form-control"%>
+    <%= f.label :confirm , "confirm"%>
+    <%= f.password_field :password_confirmation, placeholder: "confirm",class: "form-control"%>
+    <%= f.submit "Register", class: "btn btn-primary"%>
+<% end %>
+

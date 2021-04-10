@@ -1,0 +1,5 @@
+<%= form_for [:admin, @user] do |f|%>
+    <%= f.radio_button :role_id,  2%> Admin <br>
+    <%= f.radio_button :role_id,  3%> Normal <br>
+    <%= f.submit 'update'%>
+<%end%>

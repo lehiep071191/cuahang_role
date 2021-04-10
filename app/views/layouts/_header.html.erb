@@ -1,0 +1,33 @@
+<div class = "header">
+    <div class = "header__left">
+    
+    </div>
+    <div class = "header__right">
+    <ul>
+        <li class = "btn">
+            <%= link_to "HOME", root_url%>
+        </li>
+        <li class = "btn">
+            <%if logged_in?%>
+                <form action = "/logout" method="post" id = "logout_form">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                    <input type='hidden' name='_method' value='DELETE' />
+                        <a href="javascript:{}" onclick="document.getElementById('logout_form').submit();">LOGOUT</a>
+                <form>
+
+            <% else%>
+
+                <%= link_to 'LOGIN', login_path %>   
+            <%end%>
+        </li>
+        <%if logged_in?%>
+            <li class = "btn">         
+                <%= link_to 'INFO', user_path(current_user) %> 
+            </li>
+        <%end%>
+    </ul>
+    </div>
+
+</div>
+ 
+   

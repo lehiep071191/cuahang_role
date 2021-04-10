@@ -1,0 +1,16 @@
+<h1>Login</h1>
+<div>
+<%= form_for(:session, url: login_path)do |f|%>
+    <%= f.label :email, "Email"%>
+    <%= f.text_field :email, class: "form-control" %>
+    <%= f.label :password, "Password"%>
+    <%= f.password_field :password , class: "form-control" %>
+    <%= f.check_box :remember_me %> Remember? 
+    <div>
+        <button type = "submit">submit</button>
+    </div>
+<%end%>
+</div>
+<div>
+    Not Account: <%= link_to "Register", new_user_path%> 
+</div>
