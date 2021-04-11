@@ -1,0 +1,44 @@
+<h1>Trang Quan Ly San Pham</h1>
+
+<%= link_to 'tao moi san pham', new_admin_production_path, class: "btn btn-primary" %>
+
+<table id = "customers">
+    <tr>
+        <th>
+            Ten San Pham
+        </th>
+        <th>
+            Hinh Anh
+        </th>
+        <th>
+            Nhan Hieu
+        </th>
+        <th>
+            Mo Ta
+        </th>
+        <th>
+            Edit 
+        </th>
+    </tr>
+    <tbody>
+        <% @products.each do |p|%>
+            <tr>
+                <td>
+                    <%= link_to p.name , admin_production_path(p) %>
+                </td>
+                <td>
+                    <%= image_tag image_url(p.image_url), width: "100px"  %>
+                </td>
+                <td>
+                    <%= p.category.category_name%>
+                </td>
+                <td>    
+                    <%= p.description%>
+                </td>
+                <td>
+                    <%= link_to 'edit', edit_admin_production_path(p), class: "btn" %>
+                </td>
+            </tr>
+        <%end%>
+    <tbody>
+</table>

@@ -1,0 +1,30 @@
+<div class = "home row">
+    <div class = "col-sm-3">
+        <ul class = "brand-category" style = "list-style: none">
+            <%Category.all.each do |c|%>
+                <li>
+                    <%= link_to "#{c.category_name}", category_path(c), class: "btn btn-default #{color_text(c, @category)}"  %>
+                </li>    
+            <%end%>
+        </ul>    
+    </div>
+    
+    <div class = "col-sm-9">
+        <div class = "row row-cols-6">    
+            <%@products.each do |p|%>
+                <div class ="col-sm-4">
+                    <div class = "product_image">
+                        <%= image_tag image_url(p.image_url), width: "100%" %>
+                    </div>
+                    <div class = "product_name">
+                       <%= link_to  p.name.capitalize, production_path(p) %> 
+                    </div>
+                </div>
+            <%end%>
+        </div>    
+    </div>
+
+</div>
+
+
+  

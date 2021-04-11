@@ -36,3 +36,64 @@
      font-family: Segoe UI;
      text-decoration: none;
  }
+
+ #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    // border: 1px solid #ddd;
+    // padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+  }
+
+  .brand-category{
+
+    li{
+      margin-top: 10px;
+        a{
+          width: 80%;
+          font-weight: bold;
+          font-size: 15px;
+        }
+    }
+}
+.home{
+  margin-top: 50px;
+}
+.product_image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+.product_name{
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: grayscale($color: #000000) ;
+}
+.color_text{
+  color:red;
+}
+.product_name2{
+  color: gray;
+  font-size: 30px;
+}
+.delete_item:hover{
+  cursor: pointer;
+}

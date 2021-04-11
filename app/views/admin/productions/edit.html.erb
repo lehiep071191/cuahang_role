@@ -1,0 +1,30 @@
+
+<h1>Edit Product</h1>
+
+<%= form_for [:admin,@product] do |f|%>
+    <div>
+        <label for="name">product name</label>
+        <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div>
+        <label for ="category_id"> Hang san xuat</label>
+        <select name = "production[category_id]" >
+            <% categories.each do |category|%>
+                <option value ="<%= category.id%>" ><%= category.category_name%></option>
+            <%end%>
+        <select>
+    </div>
+    <div>
+        <label for="name">Description</label>
+        <%= f.text_area :description, class: "form-control"%>
+    </div>
+    <%= f.fields_for :production_details do |production_detail|%>
+        <%= render 'production_detail_fields', f: production_detail %>
+    <%end%>
+    <div class="links">
+        <%= link_to_add_association 'detail', f, :production_details, class: "btn btn-success" %>
+    </div>
+    <div>
+        <%= f.submit 'update'%>
+    </div>
+<%end%>

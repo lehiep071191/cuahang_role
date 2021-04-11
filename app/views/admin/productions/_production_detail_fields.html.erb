@@ -1,0 +1,31 @@
+<div class="nested-fields">
+  <h3>them thuoc tinh cho san pham</h3>
+  <div>
+     <%= f.label :rom %>
+    <%= f.text_field :rom,class: "form-control" %>
+  </div>
+ 
+  <div>
+    <%= f.label :ram %>
+  
+    <%= f.text_field :ram,class: "form-control"  %>
+  </div>
+  <div>
+    <%= f.label :color%>
+    <%= f.text_field :color,class: "form-control"  %>
+  </div>
+  <div>
+    <%= f.label :price%>
+    <%= f.text_field :price,class: "form-control"  %>
+  </div>
+  <div>
+    <%= f.label :discount%>
+    <%= f.number_field :discount ,class: "form-control"  %>
+  </div>
+  <div>
+    <%= f.check_box :_destroy %>
+  </div>
+  
+  
+  <%= link_to_remove_association "remove detail", f %>
+</div>

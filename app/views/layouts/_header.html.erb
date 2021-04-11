@@ -12,18 +12,25 @@
                 <form action = "/logout" method="post" id = "logout_form">
                     <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
                     <input type='hidden' name='_method' value='DELETE' />
-                        <a href="javascript:{}" onclick="document.getElementById('logout_form').submit();">LOGOUT</a>
-                <form>
+                        <a href="" onclick="document.getElementById('logout_form').submit();">LOGOUT</a>
+                </form>
 
             <% else%>
-
                 <%= link_to 'LOGIN', login_path %>   
             <%end%>
         </li>
         <%if logged_in?%>
             <li class = "btn">         
                 <%= link_to 'INFO', user_path(current_user) %> 
+            </li >
+            <li class = "btn">
+                <%= link_to 'CART', card_path(current_cart) %> 
             </li>
+            <%if current_user.role.role_name == "super_admin" || current_user.role.role_name == "admin"%>
+                <li class = "btn">
+                    <%= link_to 'ADMIN', admin_users_path %>
+                </li>
+            <%end%>
         <%end%>
     </ul>
     </div>
