@@ -1,2 +1,74 @@
-<h1>Productions#show</h1>
-<p>Find me in app/views/productions/show.html.erb</p>
+<div class = "home row">
+    <div class = "col-sm-3">
+        <ul class = "brand-category" style = "list-style: none">
+            <%Category.all.each do |c|%>
+                <li>
+                    <%= link_to "#{c.category_name}", category_path(c), class: "btn btn-default #{color_text(c.id, @product.category.id)}"  %>
+                </li>    
+            <%end%>
+        </ul>    
+    </div>
+    <div class= "col-sm-9">
+        <div class = "col-sm-6">
+            <div class = "product_image">
+                <%= image_tag image_url(@product.image_url), width: '70%'%>
+            </div>
+        </div>
+        <div class = "col-sm-6">
+            <div class = "product_name2">
+               <%= @product.category.category_name%> <%= @product.name.capitalize %>
+
+            </div>
+            <%# modal %>
+                <div>
+                    <% if logged_in?%>
+                      <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Them Vao Gio Hang<i class="fa fa-shopping-cart"></i></button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                            
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Lựa chọn phiên bản bạn muốn mua</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class = "row row-cols-9">
+                                        <%@product.production_details.each do |item|%>
+                                            <div class = "col-md-4">
+                                                <div>
+                                                    <%= image_tag image_url(item.production.image_url), width: "40%" %>
+                                                       
+                                                </div>
+                                                    <input value="<%=current_cart.id%>" type="hidden" name="card_product[card_id]" id="cart_id_<%=item.id %>">
+                                                    <input value="<%=item.id %>" type="hidden" name="card_product[production_detail_id]" id="production_detail_id_<%= item.id%>">
+                                                    <input value="1" type="hidden" name="card_product[quantity]" id="quantity_<%=item.id %>">
+                                                    <button class = "add_to_cart" data-id="<%=item.id%>"><i class="fa fa-shopping-cart">mua hang</i></button>
+                                                <div>
+                                                    bo nho trong: <%= item.rom %><br>
+                                                    ram: <%= item.ram %><br>
+                                                    mau sac: <%= item.color%>
+                                                </div>
+                                            </div>
+                                        <%end%>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>                            
+                            </div>
+                        </div>
+                </div>
+                <%else%>    
+                    <button onclick = "thongbao()">Them Vao Gio Hang<i class="fa fa-shopping-cart"></i></button>
+                <%end%>
+                <%#end modal %>
+
+        </div>
+    </div>
+</div>
+
+
+

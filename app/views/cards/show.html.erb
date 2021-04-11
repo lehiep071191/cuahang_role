@@ -1,0 +1,70 @@
+<h1>Gio hang cua <%= current_user.name %></h1>
+<table id = "customers">
+    <%# <tr>
+        <th>
+            Hinh anh
+        </th>
+        <th>
+            Ten Mon hang
+        </th>
+        <th>
+            Thong so
+        </th>
+        <th>
+            Mau Sac
+        </th>
+        <th>
+            Thanh Tien
+        </th>
+        <th>
+            xoa khoi gio hang
+        </th>
+    </tr> %>
+
+    <tbody>
+        <%current_cart.card_products.each do |item|%>
+        <tr id = "product_detail_<%=item.id %>">
+            <td>    
+                <%= image_tag image_url(item.production_detail.production.image_url),width: "70px"%>
+            </td>
+            <td>
+                <%= item.production_detail.production.name%>
+            </td>
+            <td>
+                rom: <%= item.production_detail.rom%><br> 
+                ram: <%= item.production_detail.ram%>
+            </td>
+            <td>
+                <%= item.production_detail.color %>
+            </td>
+            <td style = "text-align: right;" id = "total_cart_<%= item.id %>" class = "value_price">
+                <%= item.unit_price %>
+            </td>
+            <td style = "text-align: center">
+                <span id = "delete_item_<%= item.id %>" class = "delete_item" data-id="<%=item.id%>"><i class="fa fa-trash-o" style="font-size:24px;color:red"></i></span>
+            </td>
+        </tr>
+        <%end%>
+        <tr>
+           <td style = "color:red; ">
+            <b>Thanh tien</b>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+           <td>
+           
+           </td>
+           <td style="text-align: right; color: red; font-weight: bold" id = "total_cart">
+                <%= current_cart.total%>
+           </td>
+           <td>
+           </td>
+        </tr>
+    </tbody>
+
+</table>
+<script>
+   
+</script>

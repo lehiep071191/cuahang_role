@@ -7,8 +7,14 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import 'stylesheets/application'
+// import 'stylesheets/application'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require("jquery")
+require("@nathanvda/cocoon")
+
+import 'packs/add_to_cart.js'
+import 'packs/remove_from_cart.js'

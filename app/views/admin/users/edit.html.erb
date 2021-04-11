@@ -1,5 +1,19 @@
-<%= form_for [:admin, @user] do |f|%>
-    <%= f.radio_button :role_id,  2%> Admin <br>
-    <%= f.radio_button :role_id,  3%> Normal <br>
-    <%= f.submit 'update'%>
+
+
+<%if current_user.role.role_name == "super_admin"%>
+<h1>Trang Nang Cap Tai Khoan cua Super Admin</h1>
+    <%= form_for [:admin, @user] do |f|%>
+        <%= f.radio_button :role_id,  2%> Admin <br>
+        <%= f.radio_button :role_id,  3%> Normal <br>
+        <%= f.radio_button :role_id,  4%> Band <br>
+        <%= f.submit 'update'%>
+    <%end%>
+<%else%>    
+<h1>Trang Nang Cap Tai Khoan cua Admin</h1>
+     <%= form_for [:admin, @user] do |f|%>
+        <%= f.radio_button :role_id,  3%> Normal <br>
+        <%= f.radio_button :role_id,  4%> Band <br>
+        <%= f.submit 'update'%>
+    <%end%>
+
 <%end%>

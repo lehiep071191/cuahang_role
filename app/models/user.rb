@@ -9,6 +9,7 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, length: {maximum: 20,minimum: 6}, allow_nil: true
     belongs_to :role
+    has_one :card 
 
     class << self
 	    def digest(string)
